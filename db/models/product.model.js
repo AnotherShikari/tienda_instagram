@@ -17,7 +17,11 @@ const ProductSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  precio: {
+  precio_compra: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+  },
+  precio_venta: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
@@ -32,6 +36,11 @@ const ProductSchema = {
   material: {
     allowNull: false,
     type: DataTypes.STRING,
+  },
+  activo: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
   },
   createdAt: {
     allowNull: false,
