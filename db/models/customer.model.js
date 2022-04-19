@@ -1,27 +1,27 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const CLIENT_TABLE = 'clients';
+const CUSTOMER_TABLE = 'customers';
 
-const ClientSchema = {
+const CustomerSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  nombre_completo: {
+  fullname: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  direccion: {
+  adress: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  comuna: {
+  commune: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  telefono: {
+  phone: {
     allowNull: false,
     type: DataTypes.STRING,
   },
@@ -29,26 +29,35 @@ const ClientSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  usuario_instagram: {
+  instagram_user: {
     allowNull: false,
     type: DataTypes.STRING,
+  },
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'create_at',
+    defaultValue: Sequelize.NOW
   }
 }
 
-class Client extends Model {
-  static associate() {
-    // associate
+class Customer extends Model {
+  static associate(models) {
+    this.hasMany(models.Order, {
+        as: 'orders',
+        foreignKey:'customerId'
+    });
   }
 
   static config(sequelize) {
     return {
       sequelize,
-      tableName: CLIENT_TABLE,
-      modelName: 'Client',
+      tableName: CUSTOMER_TABLE,
+      modelName: 'Customer',
       timestamps: false
     }
   }
 }
 
 
-module.exports = { CLIENT_TABLE, ClientSchema, Client }
+module.exports = { CUSTOMER_TABLE, CustomerSchema, Customer }

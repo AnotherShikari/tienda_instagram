@@ -9,35 +9,39 @@ const ProductSchema = {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  nombre: {
+  name: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  cantidad: {
+  amount: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  precio_compra: {
+  buy_price: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  precio_venta: {
+  sell_price: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  marca: {
-    allowNull: false,
+  brand: {
+    allowNull: true,
+    type: DataTypes.STRING,
+  },
+  size: {
+    allowNull: true,
     type: DataTypes.STRING,
   },
   color: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
   },
   material: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
   },
-  activo: {
+  active: {
     allowNull: false,
     type: DataTypes.BOOLEAN,
     defaultValue: true
