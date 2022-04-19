@@ -1,36 +1,36 @@
 const Joi = require('joi');
 
 const id = Joi.number();
-const nombre = Joi.string();
-const talla = Joi.string();
-const cantidad = Joi.number();
-const precio_compra = Joi.number();
-const precio_venta = Joi.number();
-const marca = Joi.string();
+const name = Joi.string();
+const size = Joi.string();
+const amount = Joi.number();
+const buy_price = Joi.number();
+const sell_price = Joi.number();
+const brand = Joi.string();
 const color = Joi.string();
 const material = Joi.string();
-const activo = Joi.boolean();
+const active = Joi.boolean();
 
 const createProductSchema = Joi.object({
-  nombre: nombre.required(),
-  cantidad: cantidad.required(),
-  precio_compra: precio_compra,
-  precio_venta: precio_venta,
-  talla: talla,
-  marca: marca,
+  name: name.required(),
+  amount: amount.required(),
+  buy_price: buy_price.required(),
+  sell_price: sell_price.required(),
+  size: size,
+  brand: brand,
   color: color,
   material: material
 });
 
 const updateProductSchema = Joi.object({
-  nombre: nombre,
-  precio_compra: precio_compra,
-  precio_venta: precio_venta,
-  talla: talla,
-  marca: marca,
+  name: name,
+  buy_price: buy_price,
+  sell_price: sell_price,
+  size: size,
+  brand: brand,
   color: color,
   material: material,
-  activo: activo
+  active: active
 });
 
 const getProductSchema = Joi.object({
