@@ -1,8 +1,9 @@
 'use strict';
 
 const { ProductSchema, PRODUCT_TABLE } = require('../models/product.model');
-const { OrderProductSchema, ORDER_PRODUCT_TABLE } = require('../models/order-product.model');
 const { OrderSchema, ORDER_TABLE } = require('../models/order.model');
+const { OrderProductSchema, ORDER_PRODUCT_TABLE } = require('../models/order-product.model');
+
 
 
 

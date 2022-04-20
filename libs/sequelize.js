@@ -5,7 +5,7 @@ const setupModels = require('./../db/models');
 
 const options = {
   dialect: 'postgres',
-  logging: config.isProd ? false : true,
+  logging: console.log
 }
 
 if (config.isProd) {
@@ -19,5 +19,7 @@ if (config.isProd) {
 const sequelize = new Sequelize(config.dbUrl, options);
 
 setupModels(sequelize);
+
+sequelize.sync();
 
 module.exports = sequelize;
