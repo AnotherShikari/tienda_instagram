@@ -63,8 +63,15 @@ const OrderSchema = {
     onDelete: 'SET NULL'
   },
   total_price:{
-    allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.VIRTUAL,
+    get(){
+      if(this.items.length > 0){
+        return this.items.reduce((total, item) => {
+          return total + (item.sell_price * item.OrderProduct.amount);
+        }, 0);
+      }
+      return 0;
+    }
   },
   createdAt: {
     allowNull: false,

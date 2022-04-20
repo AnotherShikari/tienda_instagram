@@ -9,7 +9,6 @@ const comment = Joi.string();
 const shippingMethodId = Joi.number();
 const tracking_code = Joi.string();
 const originSaleId = Joi.number();
-const total_price = Joi.number();
 
 const createOrderSchema = Joi.object({
   customerId: customerId,
@@ -19,8 +18,7 @@ const createOrderSchema = Joi.object({
   comment: comment,
   shippingMethodId: shippingMethodId.required(),
   tracking_code: tracking_code,
-  originSaleId: originSaleId.required(),
-  total_price: total_price.required()
+  originSaleId: originSaleId.required()
 });
 
 
@@ -32,8 +30,7 @@ const updateOrderSchema = Joi.object({
   comment: comment,
   shippingMethodId: shippingMethodId,
   tracking_code: tracking_code,
-  originSaleId: originSaleId,
-  total_price: total_price
+  originSaleId: originSaleId
 });
 
 const getOrderSchema = Joi.object({
