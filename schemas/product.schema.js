@@ -26,6 +26,7 @@ const updateProductSchema = Joi.object({
   name: name,
   buy_price: buy_price,
   sell_price: sell_price,
+  amount: amount,
   size: size,
   brand: brand,
   color: color,
