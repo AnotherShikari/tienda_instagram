@@ -27,18 +27,22 @@ const ProductSchema = {
   },
   brand: {
     allowNull: true,
+    notEmpty: false, 
     type: DataTypes.STRING,
   },
   size: {
     allowNull: true,
+    notEmpty: false, 
     type: DataTypes.STRING,
   },
   color: {
     allowNull: true,
+    notEmpty: false, 
     type: DataTypes.STRING,
   },
   material: {
     allowNull: true,
+    notEmpty: false, 
     type: DataTypes.STRING,
   },
   active: {
