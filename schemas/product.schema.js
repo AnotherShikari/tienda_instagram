@@ -2,13 +2,13 @@ const Joi = require('joi');
 
 const id = Joi.number();
 const name = Joi.string();
-const size = Joi.string();
 const amount = Joi.number();
 const buy_price = Joi.number();
 const sell_price = Joi.number();
-const brand = Joi.string();
-const color = Joi.string();
-const material = Joi.string();
+const brand = Joi.string().optional().allow('');
+const size = Joi.string().optional().allow('');
+const color = Joi.string().optional().allow('');
+const material = Joi.string().optional().allow('');
 const active = Joi.boolean();
 
 const createProductSchema = Joi.object({
