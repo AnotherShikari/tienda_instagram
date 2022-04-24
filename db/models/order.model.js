@@ -63,7 +63,8 @@ const OrderSchema = {
     onDelete: 'SET NULL'
   },
   total_price:{
-    type: DataTypes.VIRTUAL,
+    readOnly: true,
+    type: DataTypes.INTEGER,
     get(){
       if(this.items.length > 0){
         return this.items.reduce((total, item) => {
