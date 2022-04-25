@@ -62,18 +62,18 @@ const OrderSchema = {
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   },
-  total_price:{
-    readOnly: true,
-    type: DataTypes.INTEGER,
-    get(){
-      if(this.items.length > 0){
-        return this.items.reduce((total, item) => {
-          return total + (item.sell_price * item.OrderProduct.amount);
-        }, 0);
-      }
-      return 0;
-    }
-  },
+  // total_price:{
+  //   readOnly: true,
+  //   type: DataTypes.INTEGER,
+  //   get(){
+  //     if(this.items.length > 0){
+  //       return this.items.reduce((total, item) => {
+  //         return total + (item.sell_price * item.OrderProduct.amount);
+  //       }, 0);
+  //     }
+  //     return 0;
+  //   }
+  // },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,
