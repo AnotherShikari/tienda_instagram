@@ -19,7 +19,7 @@ class OrderService {
 
   async find() {
     const rta = await models.Order.findAll({
-      include: ['shipping_method']
+      include: ['shipping_method', 'origin_sale', 'customer']
     });
     return rta;
   }
