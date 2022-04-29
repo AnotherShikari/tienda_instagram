@@ -14,18 +14,18 @@ const OrderProductSchema = {
   },
   orderId: {
     field: 'order_id',
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.INTEGER,
     references:{
         model: ORDER_TABLE,
         key: 'id'
     },
     onUpdate: 'CASCADE',
-    onDelete: 'SET NULL'
+    onDelete: 'CASCADE'
   },
   productId: {
     field: 'product_id',
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.INTEGER,
     references:{
         model: PRODUCT_TABLE,
@@ -56,15 +56,15 @@ const OrderProductSchema = {
 
 class OrderProduct extends Model {
     static associate(models) {
-        this.belongsTo(models.ShippingMethod, {
-          as: 'shipping_method'
-        });
-        this.belongsTo(models.Customer, {
-          as: 'customer'
-        });
-        this.belongsTo(models.OriginSale, {
-          as: 'origin_sale'
-        });
+        // this.belongsTo(models.ShippingMethod, {
+        //   as: 'shipping_method'
+        // });
+        // this.belongsTo(models.Customer, {
+        //   as: 'customer'
+        // });
+        // this.belongsTo(models.OriginSale, {
+        //   as: 'origin_sale'
+        // });
     }
 
   static config(sequelize) {

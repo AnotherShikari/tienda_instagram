@@ -50,7 +50,6 @@ class OrderService {
   async delete(id) {
     const order = await this.findOne(id);
     await order.destroy();
-    return { id };
   }
 
 
