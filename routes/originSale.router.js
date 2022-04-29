@@ -29,6 +29,19 @@ router.get('/:id',
   }
 );
 
+router.get('/getTotalByOrigin/:id',
+  validatorHandler(getOriginSaleSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const origin = await service.getTotalByOrigin(id);
+      res.json(origin);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 router.post('/',
   validatorHandler(createOriginSaleSchema, 'body'),
   async (req, res, next) => {

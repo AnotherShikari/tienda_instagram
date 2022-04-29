@@ -4,7 +4,7 @@ const { SHIPPINGMETHOD_TABLE } = require('./shippingMethod.model');
 const { ORIGINSALE_TABLE } = require('./originSale.model');
 const { CUSTOMER_TABLE } = require('./customer.model');
 
-const ORDER_TABLE = 'order';
+const ORDER_TABLE = 'orders';
 
 const OrderSchema = {
   id: {

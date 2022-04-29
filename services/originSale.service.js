@@ -1,6 +1,7 @@
 const boom = require('@hapi/boom');
 const { models } = require('../libs/sequelize');
 
+
 class OriginSaleService {
 
   constructor(){
@@ -38,6 +39,15 @@ class OriginSaleService {
     return { id };
   }
 
+  async getTotalByOrigin(id){
+    
+    const orders = await models.Order.findAll({where: {origin_sale_id: id}})
+    let total = 0;
+    for await (let item of orders){
+      total += await models.OrderProduct.sum('sell_price',{where: {order_id: item.id}});
+    }
+    return total;
+  }
 }
 
 module.exports = OriginSaleService;
