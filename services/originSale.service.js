@@ -42,11 +42,15 @@ class OriginSaleService {
   async getTotalByOrigin(id){
     
     const orders = await models.Order.findAll({where: {origin_sale_id: id}})
-    let total = 0;
+    let totalSell = 0;
+    let totalBuy = 0;
+    
     for await (let item of orders){
-      total += await models.OrderProduct.sum('sell_price',{where: {order_id: item.id}});
+      totalSell += await models.OrderProduct.sum('sell_price',{where: {order_id: item.id}});
+      totalBuy += await models.OrderProduct.sum('buy_price',{where: {order_id: item.id}});
     }
-    return total;
+    let profit = totalSell-totalBuy;
+    return { 'total_sell' : totalSell, 'total_buy' : totalBuy, 'profit' : profit};
   }
 }
 
