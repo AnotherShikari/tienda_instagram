@@ -9,7 +9,7 @@ const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:3000','http://localhost:3001', 'https://myapp.co', 'https://web-booklovers.herokuapp.com/'];
+const whitelist = ['http://localhost:3000','http://localhost:3001', 'https://myapp.co', 'https://web-booklovers.herokuapp.com'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
