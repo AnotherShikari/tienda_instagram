@@ -2,7 +2,6 @@ const Joi = require('joi');
 
 const id = Joi.number();
 const name = Joi.string();
-const amount = Joi.number();
 const buy_price = Joi.number();
 const sell_price = Joi.number();
 const brand = Joi.string().optional().allow('');
@@ -13,7 +12,6 @@ const active = Joi.boolean();
 
 const createProductSchema = Joi.object({
   name: name.required(),
-  amount: amount.required(),
   buy_price: buy_price.required(),
   sell_price: sell_price.required(),
   size: size,
@@ -26,7 +24,6 @@ const updateProductSchema = Joi.object({
   name: name,
   buy_price: buy_price,
   sell_price: sell_price,
-  amount: amount,
   size: size,
   brand: brand,
   color: color,

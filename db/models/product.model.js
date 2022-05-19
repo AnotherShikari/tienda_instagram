@@ -13,10 +13,6 @@ const ProductSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  amount: {
-    allowNull: false,
-    type: DataTypes.INTEGER,
-  },
   buy_price: {
     allowNull: false,
     type: DataTypes.INTEGER,
