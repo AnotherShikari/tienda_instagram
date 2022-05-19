@@ -25,7 +25,7 @@ class OriginStockService {
     if(!origin){
       throw boom.notFound('origin not found');
     }
-    return client;
+    return origin;
   }
 
   async update(id, changes) {
