@@ -1,12 +1,12 @@
 'use strict';
 
 const { OriginStockSchema, ORIGINSTOCK_TABLE } = require('../models/originStock.model');
-const { ProductOriginStockSchema, PRODUCT_ORIGIN_STOCK_TABLE } = require('../models/product-origin-stock.model');
+const { ProductStockSchema, PRODUCT_STOCK_TABLE } = require('../models/productStock.model');
 
 module.exports = {
   up: async (queryInterface) => {
     await queryInterface.createTable(ORIGINSTOCK_TABLE, OriginStockSchema);
-    await queryInterface.createTable(PRODUCT_ORIGIN_STOCK_TABLE, ProductOriginStockSchema);
+    await queryInterface.createTable(PRODUCT_STOCK_TABLE, ProductStockSchema);
   },
 
   down: async (queryInterface) => {

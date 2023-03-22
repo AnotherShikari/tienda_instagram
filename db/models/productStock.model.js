@@ -3,9 +3,9 @@ const { Model, DataTypes, Sequelize } = require('sequelize');
 const { PRODUCT_TABLE } = require('./product.model');
 const { ORIGINSTOCK_TABLE } = require('./originStock.model');
 
-const PRODUCT_ORIGIN_STOCK_TABLE = 'product_origin_stock';
+const PRODUCT_STOCK_TABLE = 'product_stock';
 
-const ProductOriginStockSchema = {
+const ProductStockSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -36,7 +36,8 @@ const ProductOriginStockSchema = {
   },
   amount:{
     allowNull: false,
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    field: 'amount',
   },
   createdAt: {
     allowNull: false,
@@ -46,14 +47,14 @@ const ProductOriginStockSchema = {
   }
 }
 
-class ProductOriginStock extends Model {
+class ProductStock extends Model {
     static associate(models) {
-        // this.belongsTo(models.Product, {
-        //   as: 'product'
-        // });
-        // this.belongsTo(models.OriginStock, {
-        //   as: 'origin_stock'
-        // });
+        this.belongsTo(models.Product, {
+          as: 'product'
+        });
+        this.belongsTo(models.OriginStock, {
+          as: 'origin_stock'
+        });
         // this.belongsTo(models.OriginSale, {
         //   as: 'origin_sale'
         // });
@@ -62,12 +63,12 @@ class ProductOriginStock extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      tableName: PRODUCT_ORIGIN_STOCK_TABLE,
-      modelName: 'ProductOriginStock',
+      tableName: PRODUCT_STOCK_TABLE,
+      modelName: 'ProductStock',
       timestamps: false
     }
   }
 }
 
 
-module.exports = { PRODUCT_ORIGIN_STOCK_TABLE, ProductOriginStockSchema, ProductOriginStock }
+module.exports = { PRODUCT_STOCK_TABLE, ProductStockSchema, ProductStock }

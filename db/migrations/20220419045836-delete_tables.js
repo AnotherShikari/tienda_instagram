@@ -7,7 +7,7 @@ const { CustomerSchema, CUSTOMER_TABLE } = require('./../models/customer.model')
 const { OriginSaleSchema, ORIGINSALE_TABLE } = require('./../models/originSale.model');
 const { ProductSchema, PRODUCT_TABLE } = require('../models/product.model');
 const { OriginStockSchema, ORIGINSTOCK_TABLE } = require('../models/originStock.model');
-const { ProductOriginStockSchema, PRODUCT_ORIGIN_STOCK_TABLE } = require('../models/product-origin-stock.model');
+const { ProductOriginStockSchema, PRODUCT_STOCK_TABLE } = require('../models/productStock.model');
 
 
 
@@ -18,7 +18,7 @@ module.exports = {
 
   down: async (queryInterface) => {
     await queryInterface.dropTable(ORDER_PRODUCT_TABLE);
-    await queryInterface.dropTable(PRODUCT_ORIGIN_STOCK_TABLE);
+    await queryInterface.dropTable(PRODUCT_STOCK_TABLE);
     await queryInterface.dropTable(PRODUCT_TABLE);
     await queryInterface.dropTable(ORDER_TABLE);
     await queryInterface.dropTable(CUSTOMER_TABLE);

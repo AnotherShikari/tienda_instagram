@@ -5,7 +5,10 @@ const setupModels = require('./../db/models');
 
 const options = {
   dialect: 'postgres',
-  logging: console.log
+  logging: console.log,
+  define:{
+    underscored: true
+  }
 }
 
 if (config.isProd) {

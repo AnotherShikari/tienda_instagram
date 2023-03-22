@@ -23,12 +23,12 @@ const OriginStockSchema = {
 
 class OriginStock extends Model {
   static associate(models) {
-    this.belongsToMany(models.Product, {
-      foreignKey: 'origin_stock_id',
-      otherKey: 'product_id',
-      through: models.ProductOriginStock,
-      as: 'items'
-    })
+    // this.belongsToMany(models.Product, {
+    //   foreignKey: 'origin_stock_id',
+    //   otherKey: 'product_id',
+    //   through: models.ProductStock,
+    //   as: 'items'
+    // })
   }
 
   static config(sequelize) {
